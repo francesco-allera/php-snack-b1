@@ -73,12 +73,14 @@ $age = $_GET['age'] ? $_GET['age'] : '';
 
 $text = 'negato';
 
-if (strlen($name) >= 3 &&
+if (
+    strlen($name) >= 3 &&
     strpos($mail, '@') !== false &&
     strpos($mail, '.', strpos($mail, '@')) !== false &&
     is_numeric($age) &&
-    strpos($age, '.') === false) {
-        $text = 'riuscito';
+    strpos($age, '.') === false
+) {
+    $text = 'riuscito';
 }
 
 ?>
@@ -97,18 +99,22 @@ if (strlen($name) >= 3 &&
         <h2>Le partite sono state:</h2>
 
         <ul>
-            <?php for($i = 0; $i < count($matches); $i++) { ?>
-            <li>
-                <?php echo $matches[$i]["home name"] .' - '. $matches[$i]["guest name"] .' | '. $matches[$i]["home points"] .' - '. $matches[$i]["guest points"];?>
-            </li>
+            <?php for ($i = 0; $i < count($matches); $i++) { ?>
+                <li>
+                    <?php echo $matches[$i]["home name"] . ' - ' . $matches[$i]["guest name"] . ' | ' . $matches[$i]["home points"] . ' - ' . $matches[$i]["guest points"]; ?>
+                </li>
             <?php } ?>
         </ul>
 
         <br>
 
         <h1>
-            Accesso <?php echo $text;?>
+            Accesso <?php echo $text; ?>
         </h1>
+
+        <small>
+            Aggiungere all'url ?name= con un nome, poi &mail= con una mail, poi &age= con un numero, infine premi invio.
+        </small>
     </div>
 
 </body>
